@@ -23,6 +23,14 @@ class PersonClass {
         this._direction = direction;
     }
 
+    get getCode() {
+        return this.code;
+    }
+
+    get direction() {
+        return this._direction;
+    }
+
     sing(track) {
         return `Hellow, I am sing ${track} today!`;
     }
@@ -37,4 +45,6 @@ console.log(methodPerson);
 
 person.setCode = 555;
 person.direction = 'Av. Sprinfiedld Calle Siempre Viva';
-
+const code = person.getCode;
+const direction = person.direction;
+console.log({code, direction});
