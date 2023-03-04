@@ -1,5 +1,16 @@
 // TODO: Sintax for create one class
 class PersonClass {
+    static _propertyStatic = 0;
+
+    static get propertyStatic() {
+        return PersonClass._propertyStatic;
+    }
+
+    static methodStatic() {
+        // console.log(this.nombre);  undefined nombre
+        return 'I am, method static';
+    }
+
     name;
     code;
     phrase;
@@ -10,7 +21,7 @@ class PersonClass {
         this.code = code;
         this.phrase = phrase;
         this._direction = '';
-        console.log('Hola!');
+        PersonClass._propertyStatic++;
     }
 
     // Forma de Fernando Herrera
@@ -48,3 +59,12 @@ person.direction = 'Av. Sprinfiedld Calle Siempre Viva';
 const code = person.getCode;
 const direction = person.direction;
 console.log({code, direction});
+
+console.log(`Property Static: ${PersonClass._propertyStatic}`);
+console.log(`Get Static: ${PersonClass.propertyStatic}`);
+console.log(`Method Static: ${PersonClass.methodStatic()}`);
+
+// TODO: Its possible in Javascript, create news properties or methods out from the class.
+PersonClass.newProperty = 'I am, new property';
+console.log(PersonClass.newProperty);
+console.log(PersonClass);
